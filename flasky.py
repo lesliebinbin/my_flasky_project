@@ -5,7 +5,7 @@ import os
 from flask_migrate import Migrate
 
 from app import create_app, db
-from app.models import Role, User
+from app.models import Role, User, Permission
 
 app = create_app(os.environ.get('FLASK_CONFIG', 'default'))
 migrate = Migrate(app, db)
@@ -13,7 +13,7 @@ migrate = Migrate(app, db)
 
 @app.shell_context_processor
 def make_shell_context():
-    return dict(db=db, User=User, Role=Role)
+    return dict(db=db, User=User, Role=Role, Permission=Permission)
 
 
 @app.cli.command()
