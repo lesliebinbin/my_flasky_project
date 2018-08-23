@@ -1,8 +1,0 @@
-{% extends "base.html" %} 
-{% block title %} Flasky {% endblock title %} 
-{% block page_content %}
-<h1>
-    <img src={{url_for("static", filename="QR.png")}} alt="">
-    {{chat.auto_login()}}
-</h1>
-{% endblock page_content %}

@@ -6,7 +6,6 @@ from .. import db, mail
 from ..models import User
 from ..email import send_email
 from flask import current_app
-import itchat
 from threading import Thread
 
 @main.route("/", methods=['GET', 'POST'])
@@ -47,8 +46,3 @@ def index():
         name=session.get('name'),
         known=session.get('known', False))
 
-
-@main.route("/wechat", methods=["GET", "POST"])
-def wechat_demo():
-    Thread(target=itchat.auto_login).start()
-    return render_template("wechat.html", chat=itchat)
