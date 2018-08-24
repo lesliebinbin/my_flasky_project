@@ -20,6 +20,11 @@
     {% endif %}
     {% if current_user.is_administrator() %}
     <p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
+    <p>
+        <a class="btn btn-danger" href="{{url_for('.edit_profile_admin', id=user.id)}}">
+            Edit Profile [Admin]
+        </a>
+    </p>
     {% endif %}
     {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
     <p>
